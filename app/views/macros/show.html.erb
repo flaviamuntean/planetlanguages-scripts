@@ -1,0 +1,29 @@
+<div class="banner-macro">
+  <div class="container">
+    <h1><%= @macro.name %></h1>
+    <%= link_to macros_path, class: 'btn btn-secondary back-btn' do %>
+      <i class="fas fa-arrow-left"></i> Back to the list
+    <% end %>
+  </div>
+</div>
+
+<h1 class="header">Description:</h1>
+<%= @macro.description %>
+
+<h1 class="header">Code:</h1>
+<%= @macro.code %>
+
+<h1 class="header">Comments:</h1>
+
+<%# if @macro.comments.empty? %>
+  <h5 class="text-secondary mb-4">No comments yet</h5>
+<%# else %>
+  <!-- <ol class="mb-5">
+    <%# @macro.comments.each do |comment| %>
+      <li><%#= comment.content %></li>
+    <%# end %>
+  </ol> -->
+<%# end %>
+
+<%#= link_to 'Add ingredient', new_macro_dose_path(@macro), class: 'btn btn-primary' %>
+<%#= link_to 'Add comment', new_macro_comment_path(@macro), class: 'btn btn-primary' %>

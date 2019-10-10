@@ -1,0 +1,18 @@
+<h1 class="header">Automation solutions</h1>
+
+<div class="cards mb-5">
+  <% @macros.each do |macro| %>
+    <%= link_to macro_path(macro) do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://unsplash.com/photos/ZMraoOybTLQ')">
+        <%= macro.name %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= link_to new_macro_path, class: 'card-add' do %>
+    <div class="card-category" style="background-color: #aaa">
+      <i class="fas fa-plus"></i>
+      <p>Add new</p>
+    </div>
+  <% end %>
+</div>

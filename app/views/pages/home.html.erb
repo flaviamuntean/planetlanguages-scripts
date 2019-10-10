@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-page">
+  <%= render 'shared/navbar' %>
+  <div class="banner">
+    <div id="banner-info" class="container">
+        <h1>Welcome to the Planet Languages automation hub</h1>
+        <p>Take a break while your chosen automation solution does the work for you</p>
+        <form action="/macros">
+          <input type="search" name="query" class="form-control" placeholder="Search by name or functionality">
+          <input type="submit" value="Find a solution!" class="btn btn-login">
+        </form>
+    </div>
+  </div>
+</div>
