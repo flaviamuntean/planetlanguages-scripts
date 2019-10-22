@@ -1,10 +1,9 @@
-<h1 class="header">Automation solutions</h1>
-
+<%= render "shared/filters" %>
 <div class="cards mb-5">
   <% @macros.each do |macro| %>
     <%= link_to macro_path(macro) do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://unsplash.com/photos/ZMraoOybTLQ')">
-        <%= macro.name %>
+        <div class="title"><%= macro.name %></div>
       </div>
     <% end %>
   <% end %>

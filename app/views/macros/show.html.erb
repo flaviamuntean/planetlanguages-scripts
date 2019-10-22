@@ -11,7 +11,9 @@
 <%= @macro.description %>
 
 <h1 class="header">Code:</h1>
-<%= @macro.code %>
+<%= simple_format(@macro.code) %>
+<%#= render "code", language: :ruby %>
+
 
 <h1 class="header">Comments:</h1>
 
