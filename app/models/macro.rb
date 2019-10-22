@@ -10,4 +10,9 @@ class Macro < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+  acts_as_taggable_on :tags
+
+  def self.tags
+    ['translation', 'approval', 'memoQ', 'single file', 'multiple files', 'Optik', 'other'].sort_by(&:downcase)
+  end
 end

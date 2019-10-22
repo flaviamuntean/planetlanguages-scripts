@@ -1,2 +1,9 @@
-<h1>Macros#edit</h1>
-<p>Find me in app/views/macros/edit.html.erb</p>
+<h1>Edit the macro</h1>
+<%= simple_form_for @macro do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :code %>
+  <!-- Add tags as checkboxes -->
+  <%= f.input :tag_list, as: :check_boxes, collection: Macro.tags %>
+  <%= f.submit %>
+<% end %>

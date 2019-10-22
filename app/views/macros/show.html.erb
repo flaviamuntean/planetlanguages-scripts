@@ -1,9 +1,18 @@
-<div class="banner-macro">
-  <div class="container">
+<div class="banner-macro d-flex flex-column">
+  <div class="d-flex justify-content-between buttons">
+    <div>
+      <%= link_to macros_path, class: 'btn btn-secondary back-btn' do %>
+        <i class="fas fa-arrow-left"></i> Back to the list
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "Edit", edit_macro_path(@macro), class: "btn btn-secondary back-btn" %>
+      <%= link_to "Remove", macro_path(@macro), method: :delete, class: "btn btn-secondary back-btn"%>
+    </div>
+  </div>
+
+  <div class="container pt-5">
     <h1><%= @macro.name %></h1>
-    <%= link_to macros_path, class: 'btn btn-secondary back-btn' do %>
-      <i class="fas fa-arrow-left"></i> Back to the list
-    <% end %>
   </div>
 </div>
 
@@ -13,11 +22,21 @@
 <h1 class="header">Code</h1>
 <%= simple_format(@macro.code) %>
 
+<h1 class="header">Tags</h1>
+<% if @macro.tag_list.empty? %>
+  <h5 class="text-secondary mb-4">No tags yet</h5>
+<% else %>
+  <% @macro.tag_list.each do |tag| %>
+    <%= tag %>
+  <% end %>
+<% end %>
+
 <h1 class="header">Comments</h1>
 
 <%# if @macro.comments.empty? %>
   <h5 class="text-secondary mb-4">No comments yet</h5>
 <%# else %>
+
   <!-- <ol class="mb-5">
     <%# @macro.comments.each do |comment| %>
       <li><%#= comment.content %></li>
