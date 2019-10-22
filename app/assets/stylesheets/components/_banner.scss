@@ -1,15 +1,9 @@
 .banner-macro {
-  position: relative;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6');
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-}
+  height: 35vh;
 
-.banner-macro .back-btn {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .banner-macro h1 {

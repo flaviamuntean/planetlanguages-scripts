@@ -5,6 +5,7 @@
     <%= f.input :name, input_html: { autocomplete: 'off', autofocus: true } %>
     <%= f.input :description, input_html: { autocomplete: 'off' } %>
     <%= f.input :code %>
+    <%= f.input :tag_list, as: :check_boxes, collection: Macro.tags %>
   </div>
 
   <div class="form-actions">

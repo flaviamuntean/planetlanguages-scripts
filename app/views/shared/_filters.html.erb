@@ -1,5 +1,5 @@
 <div class="filters d-flex">
-  <div class="dropdown">
+  <!-- <div class="dropdown">
     <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       File type
     </button>
@@ -30,17 +30,22 @@
       <a class="dropdown-item" href="#">Axel Springer</a>
     </div>
   </div>
-
+ -->
   <div class="dropdown">
     <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      More filters
+      Filters
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">memoQ</a>
-      <a class="dropdown-item" href="#">word count</a>
-      <a class="dropdown-item" href="#">translation</a>
-      <a class="dropdown-item" href="#">approval</a>
-      <a class="dropdown-item" href="#">translation checking</a>
+      <%= form_tag('/macros', method: :get) do %>
+        <% Macro.tags.each do |tag| %>
+          <%= check_box_tag 'tags[]', tag %>
+          <%= tag %>
+          <br>
+        <% end %>
+        <%= submit_tag 'Apply' %>
+      <% end %>
     </div>
   </div>
 </div>
+
+

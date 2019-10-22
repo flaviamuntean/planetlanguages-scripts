@@ -3,7 +3,10 @@ class MacrosController < ApplicationController
 
   def index
     if params[:query].present?
+      raise
       @macros = Macro.global_search(params[:query])
+    elsif params[:tags].present?
+      @macros = Macro.tagged_with(params[:tags], match_all: true)
     else
       @macros = Macro.all
     end
@@ -30,7 +33,11 @@ class MacrosController < ApplicationController
   end
 
   def update
-    @macro = Macro.update(macro_params)
+    if @macro.update(macro_params)
+      redirect_to macro_path(@macro), notice: 'Macro successfully updated!'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -44,6 +51,6 @@ class MacrosController < ApplicationController
   end
 
   def macro_params
-    params.require(:macro).permit(:name, :description, :code)
+    params.require(:macro).permit(:name, :description, :code, tag_list: [])
   end
 end
