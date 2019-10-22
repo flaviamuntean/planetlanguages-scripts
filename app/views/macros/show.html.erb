@@ -7,15 +7,13 @@
   </div>
 </div>
 
-<h1 class="header">Description:</h1>
-<%= @macro.description %>
+<h1 class="header">Description</h1>
+<%= simple_format(@macro.description) %>
 
-<h1 class="header">Code:</h1>
+<h1 class="header">Code</h1>
 <%= simple_format(@macro.code) %>
-<%#= render "code", language: :ruby %>
 
-
-<h1 class="header">Comments:</h1>
+<h1 class="header">Comments</h1>
 
 <%# if @macro.comments.empty? %>
   <h5 class="text-secondary mb-4">No comments yet</h5>

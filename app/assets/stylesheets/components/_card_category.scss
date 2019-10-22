@@ -15,12 +15,56 @@
   position: relative;
   display: flex;
   align-items: center;
-
-
-  .title {
-    position: absolute;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 }
+
+
+.card-macro {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: black;
+  height: 180px;
+  border-radius: 5px;
+}
+
+.card-macro > img {
+  height: 70%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-macro h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-macro p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  display: inline-block;
+  width: calc(10%);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.card-macro .card-macro-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-macro-infos .card-macro-fav {
+  position: absolute;
+  right: 12px;
+  top: -20px;
+  width: 40px;
+  font-size: 24px;
+  color: #F17B20;
+}
+
