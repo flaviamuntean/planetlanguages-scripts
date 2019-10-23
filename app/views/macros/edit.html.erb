@@ -4,6 +4,6 @@
   <%= f.input :description %>
   <%= f.input :code %>
   <!-- Add tags as checkboxes -->
-  <%= f.input :tag_list, as: :check_boxes, collection: Macro.tags %>
+  <%= f.input :tag_list, as: :check_boxes, collection: Macro.tags, required: :true %>
   <%= f.submit %>
 <% end %>

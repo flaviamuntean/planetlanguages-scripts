@@ -1,36 +1,4 @@
-<div class="filters d-flex">
-  <!-- <div class="dropdown">
-    <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      File type
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Word</a>
-      <a class="dropdown-item" href="#">Excel</a>
-      <a class="dropdown-item" href="#">PowerPoint</a>
-      <a class="dropdown-item" href="#">file-independent</a>
-    </div>
-  </div>
-  <div class="dropdown">
-    <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Scope
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">single file</a>
-      <a class="dropdown-item" href="#">multiple files</a>
-    </div>
-  </div>
-
-  <div class="dropdown">
-    <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Client
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Retail Academy</a>
-      <a class="dropdown-item" href="#">Swa Online</a>
-      <a class="dropdown-item" href="#">Axel Springer</a>
-    </div>
-  </div>
- -->
+<div class="filters d-flex align-items-baseline">
   <div class="dropdown">
     <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Filters
@@ -42,10 +10,14 @@
           <%= tag %>
           <br>
         <% end %>
-        <%= submit_tag 'Apply' %>
+        <%= submit_tag 'Apply', class: "btn" %>
       <% end %>
     </div>
   </div>
+
+  <% if params[:tags].present? || params[:query].present? %>
+    <%= link_to 'Clear filters', macros_path, class: "clear-filters" %>
+  <% end %>
 </div>
 
 
