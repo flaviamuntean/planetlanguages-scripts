@@ -13,6 +13,8 @@ class Macro < ApplicationRecord
   acts_as_taggable_on :tags
 
   def self.tags
-    ['translation', 'approval', 'memoQ', 'single file', 'multiple files', 'Optik', 'other'].sort_by(&:downcase)
+    ['translation', 'approval', 'memoQ', 'single file', 'multiple files', 'Optik',
+     'other', 'Retail Academy', 'Word', 'Excel', 'PowerPoint', 'Deichmann',
+     'word counts', 'Swarovski.com', 'TM analysis', 'checking'].sort_by(&:downcase)
   end
 end

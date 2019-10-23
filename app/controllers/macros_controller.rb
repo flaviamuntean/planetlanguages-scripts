@@ -3,10 +3,9 @@ class MacrosController < ApplicationController
 
   def index
     if params[:query].present?
-      raise
       @macros = Macro.global_search(params[:query])
     elsif params[:tags].present?
-      @macros = Macro.tagged_with(params[:tags], match_all: true)
+      @macros = Macro.tagged_with(params[:tags])
     else
       @macros = Macro.all
     end
@@ -41,7 +40,11 @@ class MacrosController < ApplicationController
   end
 
   def destroy
-    @macro.destroy
+    if @macro.destroy
+      redirect_to macros_path, notice: 'Macro successfully deleted!'
+    else
+      render :show
+    end
   end
 
   private
