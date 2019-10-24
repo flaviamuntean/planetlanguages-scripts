@@ -1,6 +1,8 @@
-<%= render "shared/filters" %>
+<%#= render "shared/filters" %>
+<h2 class="mb-4">My favourite macros</h2>
+
 <div class="cards mb-5">
-  <% @macros.each do |macro| %>
+  <% @user.all_favorited.each do |macro| %>
     <%= link_to macro_path(macro) do %>
 
       <div class="card-macro">
@@ -9,9 +11,7 @@
             <h2 class="title"><%= macro.name %></h2>
             <div class="card-macro-fav">
               <% if current_user.favorited?(macro) %>
-                <i class="fas fa-star"></i>
-              <% else %>
-                <i class="far fa-star"></i>
+                  <i class="fas fa-star"></i>
               <% end %>
             </div>
         </div>
@@ -19,13 +19,4 @@
 
     <% end %>
   <% end %>
-
-  <%= link_to new_macro_path, class: 'card-add' do %>
-    <div class="card-category" style="background-color: #aaa">
-      <i class="fas fa-plus"></i>
-      <p>Add new</p>
-    </div>
-  <% end %>
 </div>
-
-
