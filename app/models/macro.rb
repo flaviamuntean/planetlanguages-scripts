@@ -12,6 +12,8 @@ class Macro < ApplicationRecord
     }
   acts_as_taggable_on :tags
 
+  acts_as_favoritable
+
   def self.tags
     ['translation', 'approval', 'memoQ', 'single file', 'multiple files', 'Optik',
      'other', 'Retail Academy', 'Word', 'Excel', 'PowerPoint', 'Deichmann',
