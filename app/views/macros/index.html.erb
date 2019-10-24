@@ -2,15 +2,16 @@
 <div class="cards mb-5">
   <% @macros.each do |macro| %>
     <%= link_to macro_path(macro) do %>
-<!--       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://unsplash.com/photos/ZMraoOybTLQ')">
-        <div class="title"><%#= macro.name %></div>
-      </div> -->
+
       <div class="card-macro">
         <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" />
         <div class="card-macro-infos">
             <h2 class="title"><%= macro.name %></h2>
-            <!-- <p>Descr<%#= macro.description %></p> -->
-            <div class="card-macro-fav"><i class="far fa-star"></i></div>
+            <div class="card-macro-fav">
+              <% if current_user.favorited?(macro) %>
+                  <i class="fas fa-star"></i>
+              <% end %>
+            </div>
         </div>
       </div>
 
@@ -24,7 +25,5 @@
     </div>
   <% end %>
 </div>
-
-
 
 

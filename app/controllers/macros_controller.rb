@@ -1,5 +1,5 @@
 class MacrosController < ApplicationController
-  before_action :set_macro, only: [:show, :edit, :update, :destroy]
+  before_action :set_macro, only: [:show, :edit, :update, :destroy, :favorite, :unfavorite]
 
   def index
     if params[:query].present?
@@ -42,6 +42,24 @@ class MacrosController < ApplicationController
   def destroy
     if @macro.destroy
       redirect_to macros_path, notice: 'Macro successfully deleted!'
+    else
+      render :show
+    end
+  end
+
+  # favorite methods
+
+  def favorite
+    if current_user.favorite(@macro)
+      redirect_to macro_path(@macro), notice: "Macro successfully added to your favorites."
+    else
+      render :show
+    end
+  end
+
+  def unfavorite
+    if current_user.unfavorite(@macro)
+      redirect_to macro_path(@macro), notice: "Macro successfully removed from your favorites."
     else
       render :show
     end
