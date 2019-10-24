@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :macros
+  resources :macros do
+    resources :comments
+  end
 
   get '/favorite/:id', to: "macros#favorite", as: :favorite
   get '/unfavorite/:id', to: "macros#unfavorite", as: :unfavorite

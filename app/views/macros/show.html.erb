@@ -25,13 +25,13 @@
   </div>
 </div>
 
-<h1 class="header">Description</h1>
+<h2 class="header">Description</h2>
 <%= simple_format(@macro.description) %>
 
-<h1 class="header">Code</h1>
+<h2 class="header">Code</h2>
 <%= simple_format(@macro.code) %>
 
-<h1 class="header">Tags</h1>
+<h2 class="header">Tags</h2>
 <% if @macro.tag_list.empty? %>
   <h5 class="text-secondary mb-4">No tags yet</h5>
 <% else %>
@@ -41,18 +41,44 @@
   <%= link_to @macro.tag_list[-1], macros_path(tags: @macro.tag_list[-1]), class: "link-tags" %>
 <% end %>
 
-<h1 class="header">Comments</h1>
+<h2 class="header">Comments</h2>
 
-<%# if @macro.comments.empty? %>
+<!-- New comment form -->
+<%= simple_form_for [@macro, @comment] do |f| %>
+  <div class="form-inputs">
+    <%= f.input :content, label: 'New comment', input_html: { autocomplete: 'off' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Save', class: 'btn btn-primary btn-sm mb-4' %>
+  </div>
+<% end %>
+
+<!-- If there are no comments -->
+<% if @macro.comments.empty? %>
   <h5 class="text-secondary mb-4">No comments yet</h5>
-<%# else %>
+<% else %>
 
-  <!-- <ol class="mb-5">
-    <%# @macro.comments.each do |comment| %>
-      <li><%#= comment.content %></li>
-    <%# end %>
-  </ol> -->
-<%# end %>
+<!-- If there are comments -->
+    <div class="mb-4">
+      <% @macro.comments.each do |comment| %>
+        <div class="comment">
+          <%= image_tag "avatar.png", class: "avatar-large" %>
+          <div class="comment-content">
+            <p><small><%= comment.user.email.split("@")[0].capitalize %> - <%= comment.created_at.strftime("%A, %d %b %Y %l:%M %p") %></small></p>
+            <p><%= comment.content %></p>
+          </div>
 
-<%#= link_to 'Add ingredient', new_macro_dose_path(@macro), class: 'btn btn-primary' %>
-<%#= link_to 'Add comment', new_macro_comment_path(@macro), class: 'btn btn-primary' %>
+          <div class="comment-actions">
+            <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+            <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+<% end %>
+
+
+
+

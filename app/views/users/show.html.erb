@@ -1,22 +1,27 @@
 <%#= render "shared/filters" %>
 <h2 class="mb-4">My favourite macros</h2>
 
-<div class="cards mb-5">
-  <% @user.all_favorited.each do |macro| %>
-    <%= link_to macro_path(macro) do %>
+<% if @user.all_favorited.empty? %>
+  <p>No favourite macros yet. Go back to the <%= link_to "list", macros_path %> of macros.</p>
 
-      <div class="card-macro">
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" />
-        <div class="card-macro-infos">
-            <h2 class="title"><%= macro.name %></h2>
-            <div class="card-macro-fav">
-              <% if current_user.favorited?(macro) %>
-                  <i class="fas fa-star"></i>
-              <% end %>
+  <% else %>
+    <div class="cards mb-5">
+      <% @user.all_favorited.each do |macro| %>
+        <%= link_to macro_path(macro) do %>
+
+          <div class="card-macro">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" />
+            <div class="card-macro-infos">
+                <h2 class="title"><%= macro.name %></h2>
+                <div class="card-macro-fav">
+                  <% if current_user.favorited?(macro) %>
+                      <i class="fas fa-star"></i>
+                  <% end %>
+                </div>
             </div>
-        </div>
-      </div>
+          </div>
 
-    <% end %>
+        <% end %>
+      <% end %>
   <% end %>
 </div>
