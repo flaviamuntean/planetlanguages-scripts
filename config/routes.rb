@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/favorite/:id', to: "macros#favorite", as: :favorite
   get '/unfavorite/:id', to: "macros#unfavorite", as: :unfavorite
 
+  resources :users, only: [:show]
 end
