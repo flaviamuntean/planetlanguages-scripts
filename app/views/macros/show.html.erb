@@ -26,9 +26,10 @@
 <% if @macro.tag_list.empty? %>
   <h5 class="text-secondary mb-4">No tags yet</h5>
 <% else %>
-  <% @macro.tag_list.each do |tag| %>
-    <%= tag %>
+  <% @macro.tag_list[0...-1].each do |tag| %>
+    <%= link_to tag, macros_path(tags: tag), class: "link-tags" %> •
   <% end %>
+  <%= link_to @macro.tag_list[-1], macros_path(tags: @macro.tag_list[-1]), class: "link-tags" %>
 <% end %>
 
 <h1 class="header">Comments</h1>
