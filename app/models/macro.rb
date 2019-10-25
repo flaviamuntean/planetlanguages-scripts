@@ -18,6 +18,6 @@ class Macro < ApplicationRecord
   def self.tags
     ['translation', 'approval', 'memoQ', 'single file', 'multiple files', 'Optik',
      'other', 'Retail Academy', 'Word', 'Excel', 'PowerPoint', 'Deichmann',
-     'word counts', 'Swarovski.com', 'TM analysis', 'checking'].sort_by(&:downcase)
+     'word counts', 'Swarovski.com', 'TM analysis', 'checking', 'eLearning'].sort_by(&:downcase)
   end
 end
