@@ -8,14 +8,14 @@
     <div class="d-flex align-items-center">
       <% if current_user.favorited?(@macro) %>
         <%= link_to unfavorite_path do %>
-          <i class="fas fa-star mr-1"></i>
+          <i class="fas fa-star mr-2"></i>
         <% end %>
       <% else %>
         <%= link_to favorite_path do %>
-          <i class="far fa-star mr-1"></i>
+          <i class="far fa-star mr-2"></i>
         <% end %>
       <% end %>
-      <%= link_to "Edit", edit_macro_path(@macro), class: "btn btn-secondary back-btn mr-1" %>
+      <%= link_to "Edit", edit_macro_path(@macro), class: "btn btn-secondary back-btn mr-2" %>
       <%= link_to "Remove", macro_path(@macro), method: :delete, class: "btn btn-secondary back-btn"%>
     </div>
   </div>
@@ -28,17 +28,26 @@
 <h2 class="header">Description</h2>
 <%= simple_format(@macro.description) %>
 
-<h2 class="header">Code</h2>
-<%= simple_format(@macro.code) %>
+<h2 class="header mb-0">Code</h2>
+<figure>
+  <pre>
+    <!-- put this in code class="language-markup language-visual-basic" -->
+    <code contenteditable spellcheck="false" class="py-0">
+      <%= @macro.code %>
+    </code>
+  </pre>
+</figure>
 
-<h2 class="header">Tags</h2>
+
+
+<h2 class="header mt-0">Tags</h2>
 <% if @macro.tag_list.empty? %>
   <h5 class="text-secondary mb-4">No tags yet</h5>
 <% else %>
   <% @macro.tag_list[0...-1].each do |tag| %>
-    <%= link_to tag, macros_path(tags: tag), class: "link-tags" %> •
+    <%= link_to tag, macros_path(tags: tag), class: "tag" %>
   <% end %>
-  <%= link_to @macro.tag_list[-1], macros_path(tags: @macro.tag_list[-1]), class: "link-tags" %>
+  <%= link_to @macro.tag_list[-1], macros_path(tags: @macro.tag_list[-1]), class: "tag" %>
 <% end %>
 
 <h2 class="header">Comments</h2>
@@ -46,11 +55,18 @@
 <!-- New comment form -->
 <%= simple_form_for [@macro, @comment] do |f| %>
   <div class="form-inputs">
-    <%= f.input :content, label: 'New comment', input_html: { autocomplete: 'off' } %>
+    <% if controller_name == 'comments' && action_name == "edit" %>
+      <%= f.input :content, input_html: { autocomplete: 'off', autofocus: "true" } %>
+    <% else %>
+      <%= f.input :content, input_html: { autocomplete: 'off' } %>
+    <% end %>
   </div>
 
   <div class="form-actions">
-    <%= f.submit 'Save', class: 'btn btn-primary btn-sm mb-4' %>
+    <%= f.submit 'Save', class: 'btn btn-purple btn-sm mb-4' %>
+    <% if controller_name == 'comments' && action_name == "edit" %>
+      <%= link_to 'Cancel', macro_path(@macro), class: 'btn btn-sm btn-outline-secondary mb-4' %>
+    <% end %>
   </div>
 <% end %>
 
@@ -61,17 +77,21 @@
 
 <!-- If there are comments -->
     <div class="mb-4">
-      <% @macro.comments.each do |comment| %>
+      <% @macro.comments.order('created_at DESC').each do |comment| %>
         <div class="comment">
           <%= image_tag "avatar.png", class: "avatar-large" %>
           <div class="comment-content">
-            <p><small><%= comment.user.email.split("@")[0].capitalize %> - <%= comment.created_at.strftime("%A, %d %b %Y %l:%M %p") %></small></p>
+            <p><small><%= comment.user.email.split("@")[0].capitalize %> - <%= comment.created_at.localtime.strftime("%A, %d %b %Y %l:%M %p") %></small></p>
             <p><%= comment.content %></p>
           </div>
 
           <div class="comment-actions">
-            <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-            <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+            <%= link_to  edit_macro_comment_path(@macro, comment) do %>
+              Edit <i class="fas fa-pencil-alt"></i>
+            <% end %>
+            <%= link_to macro_comment_path(@macro, comment), method: :delete, data: {confirm: 'Are you sure you want to delete this comment?' } do %>
+              Delete <i class="far fa-trash-alt"></i>
+            <% end %>
           </div>
         </div>
       <% end %>

@@ -1,0 +1,33 @@
+// .link-tags {
+//   color: #C375E0;
+// }
+
+// .link-tags:hover {
+//   text-decoration: none;
+//   color: #643575;
+// }
+
+.tag {
+  border: 1px #C375E0 solid;
+  font-family: 'Open sans', sans-serif;
+  font-size: .75rem;
+  color: #C375E0;
+  padding: .1875rem .5rem;
+  border-radius: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    background: #C375E0;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: .3125rem;
+  }
+}

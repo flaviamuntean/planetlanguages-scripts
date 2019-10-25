@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_macro, only: [:create]
+  before_action :set_macro, only: [:edit, :create, :update, :destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def new
     @comment = Comment.new
@@ -12,8 +13,28 @@ class CommentsController < ApplicationController
 
     if @comment.save
       redirect_to macro_path(@macro), notice: 'New comment successfully added!'
-    # else
-    #   render :new
+    else
+      render 'macros/new'
+    end
+  end
+
+  def edit
+    render 'macros/show'
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to macro_path(@macro), notice: 'Comment successfully updated!'
+    else
+      render 'macros/edit'
+    end
+  end
+
+  def destroy
+    if @comment.destroy
+      redirect_to macro_path(@macro), notice: 'Comment successfully deleted!'
+    else
+      render 'macros/show'
     end
   end
 
@@ -25,5 +46,9 @@ class CommentsController < ApplicationController
 
   def set_macro
     @macro = Macro.find(params[:macro_id])
+  end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 end

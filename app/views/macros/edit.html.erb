@@ -5,5 +5,5 @@
   <%= f.input :code %>
   <!-- Add tags as checkboxes -->
   <%= f.input :tag_list, as: :check_boxes, collection: Macro.tags, required: :true %>
-  <%= f.submit %>
+  <%= f.submit class: "btn-purple mb-5" %>
 <% end %>

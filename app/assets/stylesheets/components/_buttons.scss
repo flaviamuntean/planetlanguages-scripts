@@ -16,12 +16,23 @@
   padding-top: 3px;
   padding-bottom: 3px;
   margin-top: 6px;
-  color: #F17B20;
+  color: #C375E0;
   background-color: white;
-  border: #F17B20 solid 1px;
+  border: #C375E0 solid 1px;
 }
 
 .apply-filter:hover {
   color: white;
-  background-color: #F17B20;
+  background-color: #C375E0;
+}
+
+.btn-purple {
+  background-color: white;
+  color: #C375E0;
+  border: #C375E0 solid 1px;
+}
+
+.btn-purple:hover {
+  background-color: #C375E0;
+  color: white;
 }

@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%= favicon_link_tag asset_path('favicon.ico') %>
+    <%= stylesheet_link_tag 'prism.css', media: 'all' %>
   </head>
   <body>
     <% unless action_name == 'home' || (controller_name != 'macros' && action_name == 'new') %>
@@ -24,6 +25,9 @@
       <%= yield %>
       <%= javascript_include_tag 'application' %>
       <%= javascript_pack_tag 'application' %>
+      <%#= javascript_pack_tag 'prism' %>
+      <%= javascript_include_tag 'prism' %>
+      <script src="dist/clipboard.min.js"></script>
     <% end %>
   </body>
 </html>
