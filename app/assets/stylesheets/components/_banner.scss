@@ -13,4 +13,13 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
+  display: inline-block;
+}
+
+.office-icon.show.fas {
+    color: white;
+    opacity: 0.6;
+    font-size: 28px;
+    display: inline-block;
+    margin-right: 10px;
 }

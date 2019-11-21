@@ -1,6 +1,6 @@
 <div class="banner-macro d-flex flex-column">
   <div class="d-flex justify-content-between buttons">
-    <div>
+    <div class="d-flex">
       <%= link_to macros_path, class: 'btn btn-secondary back-btn' do %>
         <i class="fas fa-arrow-left"></i> Back to the list
       <% end %>
@@ -20,7 +20,14 @@
     </div>
   </div>
 
-  <div class="container pt-5">
+  <div class="container pt-5 text-center">
+    <% if @macro.tag_list.include? "Word" %>
+      <i class="fas fa-file-word office-icon show"></i>
+    <% elsif @macro.tag_list.include? "Excel" %>
+      <i class="fas fa-file-excel office-icon show"></i>
+    <% elsif @macro.tag_list.include? "PowerPoint" %>
+      <i class="fas fa-file-powerpoint office-icon show"></i>
+    <% end %>
     <h1><%= @macro.name %></h1>
   </div>
 </div>
