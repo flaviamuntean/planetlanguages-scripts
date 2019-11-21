@@ -13,28 +13,7 @@
   <% @macros.each do |macro| %>
     <%= link_to macro_path(macro) do %>
 
-      <div class="card-macro">
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" />
-        <div class="office-icon">
-          <% if macro.tag_list.include? "Word" %>
-            <i class="fas fa-file-word"></i>
-          <% elsif macro.tag_list.include? "Excel" %>
-            <i class="fas fa-file-excel"></i>
-          <% elsif macro.tag_list.include? "PowerPoint" %>
-            <i class="fas fa-file-powerpoint"></i>
-          <% end %>
-        </div>
-        <div class="card-macro-infos">
-            <h2 class="title"><%= macro.name %></h2>
-            <div class="card-macro-fav">
-              <% if current_user.favorited?(macro) %>
-                <i class="fas fa-star"></i>
-              <% else %>
-                <i class="far fa-star"></i>
-              <% end %>
-            </div>
-        </div>
-      </div>
+      <%= render 'shared/macro_card', macro: macro %>
 
     <% end %>
   <% end %>
