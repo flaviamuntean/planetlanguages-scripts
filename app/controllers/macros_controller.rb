@@ -3,11 +3,11 @@ class MacrosController < ApplicationController
 
   def index
     if params[:query].present?
-      @macros = Macro.global_search(params[:query])
+      @macros = Macro.global_search(params[:query]).order('name ASC')
     elsif params[:tags].present?
-      @macros = Macro.tagged_with(params[:tags])
+      @macros = Macro.tagged_with(params[:tags]).order('name ASC')
     else
-      @macros = Macro.all
+      @macros = Macro.all.order('name ASC')
     end
   end
 
