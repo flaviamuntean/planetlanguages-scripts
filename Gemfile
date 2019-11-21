@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'pg_search'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'acts_as_favoritor'
+gem 'unsplash'
 
 
 group :development do
