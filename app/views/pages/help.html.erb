@@ -1,0 +1,182 @@
+<h1 class="mb-5">HOW TO ADD MACROS TO OFFICE</h1>
+
+<ol type="A">
+  <li>WORD
+    <ol>
+      <br>
+      <li>
+        <p>Open any Word document and go to View – Macros – View Macros. In the Macro name text box, type anything (this will be replaced by the actual macro name, so it does not matter what you type) and click on Create.<br>
+        Note: macro names do not support spaces between words.</p>
+      </li>
+      <li>
+        <p>This will open the Microsoft Visual Basic for Applications (VBA) window. If you typed in “TestMacro” in the macro name text box, you will see the following code in the VBA window:</p>
+        <p><strong>Sub TestMacro()<br>
+        '<br>
+        ' TestMacro Macro<br>
+        '<br>
+        '<br>
+        End Sub</strong></p>
+      </li>
+      <li>
+        <p>Select this entire text starting with Sub TestMacro() and including End Sub and paste instead the code that you need.</p>
+      </li>
+      <li>
+        <p>This means your code will now look as below:</p>
+        <p><strong>Sub ActualMacroName()<br>
+        -- lines of code --<br>
+        End Sub</strong><br></p>
+      </li>
+      <li>
+        <p>Close the VBA windows. The code will be automatically saved and recorded in your list of macros.</p>
+      </li>
+    </ol>
+  </li>
+
+  <li class="mt-5">EXCEL
+    <p><br>
+      In contrast to Word, when you add macros to Excel they will not be saved in Excel once you close the application unless you save them to your PERSONAL.XLSB file.
+    </p>
+
+    <p>
+      All computers in the office should already have a PERSONAL.XLSB file that is loaded when you open Excel, as we are all using the TM savings macros. However, if you cannot already see any macros under View – Macros – View Macros, please do the following:
+    </p>
+    <ol>
+      <li>
+        <p>Copy the PERSONAL.XLSB file saved under <em>P:/Language Technology Work/Macros/Word & Excel templates</em> and paste it in <em>C:\Users\your-username\AppData\Roaming\Microsoft\Excel\XLSTART</em> (replacing the one that you have there already if you have one). If you do not have an XLSTART folder, please create this folder first.</p>
+      </li>
+
+      <li>
+        <p>
+          You should now see a list of macros under View – Macros – View Macros. In order to add new macros to your list, select one of the macros and click on Step Into.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          This will open the Microsoft Visual Basic for Applications (VBA) window. Scroll all the way down until you see the final End Sub.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Press Enter and then paste there the code that you need for your macro.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Close the VBA windows. When you close the Excel application you will be asked if you want to save the changes you made to the Personal Macro Workbook. Click Save so that you save your new macro to the list.
+        </p>
+      </li>
+    </ol>
+  </li>
+
+  <li class="mt-5">POWERPOINT
+
+    <p>
+      <br>Adding macros becomes even more complex in PowerPoint where an entire toolbar needs to be created so that the macros are saved once you close the application. We currently only have four macros for PowerPoint and they are all saved under the PowerPoint section.
+    </p>
+    <p>
+      In order to save them to your application please do the following:
+    </p>
+    <p>
+      <strong>Adding the macros to the VBA Editor</strong>
+    </p>
+    <ol>
+      <li>
+        <p>
+          Open a new PowerPoint file.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Press ALT+F11 to start the Microsoft Visual Basic for Applications (VBA) Editor.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Click on Insert – Module. A new blank module will be created (most likely with the name Module 1).
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Add all of the code under the PowerPoint section to your module:  Sub Auto_Open (), Sub PPT (), Sub BlackOut (), Sub Unblack (), Sub AllCaps ().
+        </p>
+      </li>
+    </ol>
+
+    <p><strong>Saving the macros</strong></p>
+    <ol>
+      <li>
+        <p>
+          Once you’ve added your code, save the presentation as a PPT file (you can delete the file once all the steps are complete).
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Once you've saved your work safely in PPT format, choose File, Save As and pick PowerPoint Add-In (*.ppam) from the Files of Type dropdown listbox.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Give it the name PL_macros and save it.
+        </p>
+      </li>
+    </ol>
+
+    <p><strong>Loading the Add-In</strong></p>
+    <ol>
+
+      <li>
+        <p>
+          Click the File tab.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Click Options.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Click Add-ins.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Next to Manage: choose PowerPoint Add-Ins then click Go…
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Click Add New… and browse to your add-in.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          This will add your Add-In name to the list with a checkbox next to it so you can now click on Close.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Next time you open PowerPoint a new Add-ins tab will appear that will contain all your macros.
+        </p>
+      </li>
+
+    </ol>
+
+  </li>
+
+</ol>
+

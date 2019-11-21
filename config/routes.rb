@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :comments, only: [:index, :show]
+  get '/help', to: "pages#help", as: :help
 end
