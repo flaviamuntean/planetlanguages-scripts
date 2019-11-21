@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
   before_action :set_macro, only: [:edit, :create, :update, :destroy]
   before_action :set_comment, only: [:edit, :update, :destroy]
 
+  def index
+    @macros = Macro.all
+  end
+
   def new
     @comment = Comment.new
   end
