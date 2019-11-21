@@ -52,7 +52,7 @@ class MacrosController < ApplicationController
 
   def favorite
     if current_user.favorite(@macro)
-      redirect_to macro_path(@macro), notice: "Macro successfully added to your favorites."
+      redirect_to macro_path(@macro), notice: "Macro added to your favourites."
     else
       render :show
     end
@@ -60,7 +60,7 @@ class MacrosController < ApplicationController
 
   def unfavorite
     if current_user.unfavorite(@macro)
-      redirect_to macro_path(@macro), notice: "Macro successfully removed from your favorites."
+      redirect_to macro_path(@macro), notice: "Macro removed from your favourites."
     else
       render :show
     end
