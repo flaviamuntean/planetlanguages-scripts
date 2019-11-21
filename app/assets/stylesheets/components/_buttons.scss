@@ -36,3 +36,19 @@
   background-color: #C375E0;
   color: white;
 }
+
+.copy-btn {
+  box-shadow: none !important;
+  border-radius: 0.25rem;
+  background: #C375E0;
+  color: #fff;
+  display: block;
+  margin: 10px -10px 0 0;
+  padding: .5rem 1rem;
+  font-size: .75rem;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  position: absolute;
+  top: 22px;
+  right: 12px;
+}
