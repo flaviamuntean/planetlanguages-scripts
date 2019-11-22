@@ -8,10 +8,10 @@
 // }
 
 .tag {
-  border: 1px #C375E0 solid;
+  border: 1px #ff5252 solid;
   font-family: 'Open sans', sans-serif;
   font-size: .75rem;
-  color: #C375E0;
+  color: #ff5252;
   padding: .1875rem .5rem;
   border-radius: 1.125rem;
   text-transform: uppercase;
@@ -22,7 +22,7 @@
   transition: all .3s ease-in-out;
 
   &:hover {
-    background: #C375E0;
+    background: #ff5252;
     color: #fff;
     text-decoration: none;
   }
