@@ -1,8 +1,12 @@
-figure {
-  // overflow: auto;
-  height: 700px;
-}
-
 .code-div {
   position: relative;
+}
+
+pre {
+  overflow: hidden !important;
+}
+
+figure {
+  width: max-content;
+  margin: 0;
 }

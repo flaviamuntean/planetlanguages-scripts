@@ -38,22 +38,24 @@
 <%= simple_format(@macro.description) %>
 
 <h2 class="header mb-0">Code</h2>
-<div class="code-div">
-  <figure class="custom-scrollbar">
-    <a class="copy-btn mt-2" data-clipboard-target="#code-to-copy">Copy</a>
-    <pre>
-      <!-- put this in code class="language-markup language-visual-basic" -->
-      <code class="py-0 language-visual-basic" id="code-to-copy" data-src-loaded>
-        <%= @macro.code %>
-      </code>
-    </pre>
-  </figure>
+<div class="code-div mt-3">
+  <div class="custom-scrollbar">
+    <figure>
+      <a class="copy-btn mt-2" data-clipboard-target="#code-to-copy">Copy</a>
+      <pre>
+        <!-- put this in code class="language-markup language-visual-basic" -->
+        <code class="py-0 language-visual-basic" id="code-to-copy" data-src-loaded>
+          <%= @macro.code %>
+        </code>
+      </pre>
+    </figure>
+  </div>
 </div>
 
 
 
 
-<h2 class="header mt-0">Tags</h2>
+<h2 class="header">Tags</h2>
 <% if @macro.tag_list.empty? %>
   <h5 class="text-secondary mb-4">No tags yet</h5>
 <% else %>

@@ -209,21 +209,30 @@
 // }
 
 .custom-scrollbar {
-  height: 750px;
-  overflow-y: scroll;
-  background : #f5f2f0;
-  // width :500px;
+  height: 700px;
+  overflow: auto;
+  background : #F5F2F0;
+  width: 100%;
 }
+
 /* /* To style the document scrollbar, remove `.custom-scrollbar` */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-track {
-  background : #F4F4F4;
+  // background : transparent;
   border-radius: 10px;
 }
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  color : transparent;
+}
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background : rgba(195,117,224,0.5);
   border-radius: 10px;
   // box-shadow:  0 0 6px rgba(0, 0, 0, 0.5);
 }
+
