@@ -1,5 +1,6 @@
 .form-image {
-  background-image: url('https://images.unsplash.com/photo-1480506132288-68f7705954bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2893&q=80');
+  // background-image: url('https://images.unsplash.com/photo-1480506132288-68f7705954bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2893&q=80');
+  background-image: url('https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -13,7 +14,7 @@
 }
 
 .new_user .form-actions input {
-  background-color: #C375E0;
+  background-color: rgba(255,82,82,0.8);
   color: white;
   padding-left: 25px;
   padding-right: 25px;
@@ -21,7 +22,7 @@
 }
 
 .edit_user .form-actions input {
-  background-color: #C375E0;
+  background-color: rgba(255,82,82,0.8);
   color: white;
   padding-left: 25px;
   padding-right: 25px;
