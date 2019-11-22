@@ -10,7 +10,6 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= stylesheet_link_tag 'prism.css', media: 'all' %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
   </head>
   <body>
     <% unless action_name == 'home' || (controller_name != 'macros' && action_name == 'new') %>
