@@ -11,11 +11,9 @@
   <% end %>
 
   <% @macros.each do |macro| %>
-    <%= link_to macro_path(macro) do %>
 
       <%= render 'shared/macro_card', macro: macro %>
 
-    <% end %>
   <% end %>
 
 </div>
