@@ -7,11 +7,7 @@
   <% else %>
     <div class="cards mb-5">
       <% @user.all_favorited.each do |macro| %>
-        <%= link_to macro_path(macro) do %>
-
           <%= render 'shared/macro_card', macro: macro %>
-
-        <% end %>
       <% end %>
   <% end %>
 </div>
