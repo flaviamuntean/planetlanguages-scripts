@@ -3,14 +3,23 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 
+  .overlay-link, .overlay-link:visited {
+    color: $white;
+  }
+
+  .card-macro:hover img {
+      opacity: .9;
+  }
+
   a, a:visited {
     color: $white;
   }
 
-  a:hover {
+  .card-add:hover {
     opacity: .8;
     text-decoration: none;
   }
+
 }
 
 // Smallest device

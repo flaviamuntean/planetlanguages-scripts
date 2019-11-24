@@ -1,23 +1,30 @@
 <div class="card-macro">
-  <%= image_tag(Unsplash::Photo.search('coding').sample.urls.full, loading: "lazy", width: "200") %>
-  <div class="office-icon">
-    <% if macro.tag_list.include? "Word" %>
-      <i class="fas fa-file-word"></i>
-    <% elsif macro.tag_list.include? "Excel" %>
-      <i class="fas fa-file-excel"></i>
-    <% elsif macro.tag_list.include? "PowerPoint" %>
-      <i class="fas fa-file-powerpoint"></i>
-    <% end %>
-  </div>
-
-  <div class="card-macro-infos">
-      <h2 class="title"><%= macro.name %></h2>
-      <div class="card-macro-fav">
-        <% if current_user.favorited?(macro) %>
-          <i class="fas fa-star"></i>
-        <% else %>
-          <i class="far fa-star"></i>
+  <%= link_to '', macro_path(macro), class: "overlay-link" %>
+    <div class="card-inner">
+      <%= image_tag(Unsplash::Photo.search('coding').sample.urls.full, loading: "lazy", width: "200") %>
+      <div class="office-icon">
+        <% if macro.tag_list.include? "Word" %>
+          <i class="fas fa-file-word"></i>
+        <% elsif macro.tag_list.include? "Excel" %>
+          <i class="fas fa-file-excel"></i>
+        <% elsif macro.tag_list.include? "PowerPoint" %>
+          <i class="fas fa-file-powerpoint"></i>
         <% end %>
       </div>
-  </div>
+
+      <div class="card-macro-infos">
+        <h2 class="title"><%= macro.name %></h2>
+        <div class="card-macro-fav">
+          <% if current_user.favorited?(macro) %>
+            <%= link_to unfavorite_path(macro) do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          <% else %>
+            <%= link_to favorite_path(macro) do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>

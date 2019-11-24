@@ -17,8 +17,22 @@
   align-items: center;
 }
 
-
 .card-macro {
+  position: relative;
+}
+
+
+.card-macro .overlay-link {
+  position: absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  right:0;
+  cursor: pointer;
+}
+
+
+.card-macro .card-inner {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -26,9 +40,16 @@
   height: 180px;
   border-radius: 5px;
   position: relative;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.card-macro > img {
+.card-macro .card-inner a {
+  pointer-events: all;
+  position:relative;
+}
+
+.card-macro .card-inner > img {
   height: 70%;
   width: 100%;
   object-fit: cover;
@@ -37,6 +58,7 @@
 .card-macro h2 {
   font-size: 16px;
   margin: 0;
+  color: black;
 }
 
 .card-macro p {
@@ -78,3 +100,12 @@
   width: 40px;
   font-size: 24px;
 }
+
+.card-macro-fav {
+  transition: all .2s ease-in-out;
+}
+
+.card-macro-fav:hover {
+  transform: scale(1.15);
+}
+

@@ -4,6 +4,14 @@
   background-size: cover;
   background-position: center;
   padding-bottom: 100px;
+
+  .fa-star {
+    transition: all .2s ease-in-out;
+  }
+
+  .fa-star:hover {
+    transform: scale(1.2);
+  }
 }
 
 .banner-macro h1 {
@@ -22,3 +30,5 @@
     display: inline-block;
     margin-right: 10px;
 }
+
+
