@@ -1,7 +1,7 @@
 <div class="card-macro">
   <%= link_to '', macro_path(macro), class: "overlay-link" %>
-    <div class="card-inner">
-      <%= image_tag(Unsplash::Photo.search('coding').sample.urls.full, loading: "lazy", width: "200") %>
+    <div class="card-inner" style='background-image: url(<%= macro.photo || Unsplash::Photo.search("Coding").sample.urls.regular %>)'>
+      <%#= image_tag(Unsplash::Photo.search('coding').sample.urls.full, loading: "lazy", width: "200") %>
       <div class="office-icon">
         <% if macro.tag_list.include? "Word" %>
           <i class="fas fa-file-word"></i>
