@@ -7,8 +7,11 @@
     color: $white;
   }
 
+  .card-macro img {
+    transition: all .2s ease-in-out;
+  }
   .card-macro:hover img {
-      opacity: .9;
+    transform: scale(1.2);
   }
 
   a, a:visited {

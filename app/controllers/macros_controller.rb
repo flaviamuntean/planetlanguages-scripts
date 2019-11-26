@@ -21,6 +21,7 @@ class MacrosController < ApplicationController
 
   def create
     @macro = Macro.new(macro_params)
+    @macro.photo = Unsplash::Photo.search("Coding").sample.urls.regular
 
     if @macro.save
       redirect_to macro_path(@macro), notice: 'New macro successfully added!'
@@ -33,6 +34,10 @@ class MacrosController < ApplicationController
   end
 
   def update
+    if @macro.photo.nil?
+      @macro.photo = Unsplash::Photo.search("Coding").sample.urls.regular
+    end
+
     if @macro.update(macro_params)
       redirect_to macro_path(@macro), notice: 'Macro successfully updated!'
     else

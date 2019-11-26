@@ -1,5 +1,5 @@
 class Macro < ApplicationRecord
-  validates :name, :description, :code, presence: true
+  validates :name, :description, :code, :tag_list, presence: true
   has_many :comments, dependent: :destroy
 
   include PgSearch::Model
