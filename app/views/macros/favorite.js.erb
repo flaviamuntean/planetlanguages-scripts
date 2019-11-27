@@ -1,3 +1,5 @@
 document.querySelector("body").insertAdjacentHTML('beforeend', '<%=j render "shared/flashes" %>');
 document.getElementById("icondiv-<%= @macro.id %>").outerHTML = '<%=j render "shared/star", macro: @macro %>';
+<%= fading_flash_notice %>
+
 

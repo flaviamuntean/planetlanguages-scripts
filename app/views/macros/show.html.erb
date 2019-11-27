@@ -10,7 +10,7 @@
 
       <% if current_user.email == "flavia@planetlanguages.com" %>
         <%= link_to "Edit", edit_macro_path(@macro), class: "btn btn-secondary back-btn mr-2" %>
-        <%= link_to "Remove", macro_path(@macro), method: :delete, class: "btn btn-secondary back-btn"%>
+        <%= link_to "Remove", macro_path(@macro), method: :delete, data: {confirm: 'Are you sure you want to delete this macro?' }, class: "btn btn-secondary back-btn"%>
       <% end %>
     </div>
   </div>
