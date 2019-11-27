@@ -10,3 +10,5 @@ if (window.location.href.indexOf("users/") > -1) {
 } else {
   document.getElementById("icondiv-<%= @macro.id %>").outerHTML = '<%=j render "shared/star", macro: @macro %>';
 }
+
+<%= fading_flash_notice %>
