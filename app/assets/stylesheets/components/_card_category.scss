@@ -47,7 +47,7 @@
 }
 
 .card-macro:hover .card-inner {
-  transform: scale(1.05);
+  transform: translateZ(0) scale(1.05, 1.05);
 }
 
 .card-macro .card-inner a {
@@ -114,6 +114,6 @@
 }
 
 .card-macro-fav:hover {
-  transform: scale(1.2);
+  transform: translateZ(0) scale(1.2);
 }
 
