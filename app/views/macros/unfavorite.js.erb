@@ -1,0 +1,12 @@
+document.querySelector("body").insertAdjacentHTML('beforeend', '<%=j render "shared/flashes" %>');
+
+
+if (window.location.href.indexOf("users/") > -1) {
+  const element = document.getElementById("card-macro-<%= @macro.id %>");
+  element.parentNode.removeChild(element);
+  if (document.querySelectorAll('.card-macro').length == 0) {
+    document.querySelector('h2').insertAdjacentHTML('afterend', '<p>No favourite macros yet. Go back to the <%= link_to "list", macros_path %> of macros.</p>')
+  }
+} else {
+  document.getElementById("icondiv-<%= @macro.id %>").outerHTML = '<%=j render "shared/star", macro: @macro %>';
+}
