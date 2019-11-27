@@ -57,7 +57,11 @@ class MacrosController < ApplicationController
 
   def favorite
     if current_user.favorite(@macro)
-      redirect_back(fallback_location: macro_path(@macro), notice: "Added to favourites.")
+      flash.now[:notice] = "Added to favourites."
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: macro_path(@macro), notice: "Added to favourites.") }
+        format.js
+      end
     else
       render :show
     end
@@ -65,7 +69,11 @@ class MacrosController < ApplicationController
 
   def unfavorite
     if current_user.unfavorite(@macro)
-      redirect_back(fallback_location: macro_path(@macro), notice: "Removed from favourites.")
+      flash.now[:notice] = "Removed from favourites."
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: macro_path(@macro), notice: "Removed from favourites.") }
+        format.js
+      end
     else
       render :show
     end

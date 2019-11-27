@@ -1,0 +1,12 @@
+<div id="icondiv-<%= macro.id %>">
+  <% if current_user.favorited?(macro) %>
+    <%= link_to unfavorite_path(macro), remote: true do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+  <% else %>
+    <%= link_to favorite_path(macro), remote: true do %>
+      <i class="far fa-star"></i>
+    <% end %>
+  <% end %>
+</div>
+

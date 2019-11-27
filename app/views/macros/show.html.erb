@@ -6,15 +6,8 @@
       <% end %>
     </div>
     <div class="d-flex align-items-center">
-      <% if current_user.favorited?(@macro) %>
-        <%= link_to unfavorite_path do %>
-          <i class="fas fa-star mr-2"></i>
-        <% end %>
-      <% else %>
-        <%= link_to favorite_path do %>
-          <i class="far fa-star mr-2"></i>
-        <% end %>
-      <% end %>
+        <%= render 'shared/star', macro: @macro %>
+
       <% if current_user.email == "flavia@planetlanguages.com" %>
         <%= link_to "Edit", edit_macro_path(@macro), class: "btn btn-secondary back-btn mr-2" %>
         <%= link_to "Remove", macro_path(@macro), method: :delete, class: "btn btn-secondary back-btn"%>
