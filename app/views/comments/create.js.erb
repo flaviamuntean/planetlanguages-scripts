@@ -1,0 +1,19 @@
+// Here you generate *JavaScript* that would be executed in the browser
+function refreshForm(innerHTML) {
+  const newCommentForm = document.getElementById('new_comment');
+  newCommentForm.innerHTML = innerHTML;
+}
+
+function addComment(commentHTML) {
+  const comments = document.getElementById('comments');
+  comments.insertAdjacentHTML('afterbegin', commentHTML);
+}
+
+<% if @comment.errors.any? %>
+  console.log('no body');
+  refreshForm('<%= j render "form", macro: @macro, comment: @comment %>');
+<% else %>
+  console.log('no errors');
+  addComment('<%= j render "show", comment: @comment %>');
+  refreshForm('<%= j render "form", macro: @macro, comment: Comment.new %>');
+<% end %>

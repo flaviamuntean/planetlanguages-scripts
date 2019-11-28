@@ -16,9 +16,15 @@ class CommentsController < ApplicationController
     @comment.macro = @macro
 
     if @comment.save
-      redirect_to macro_path(@macro), notice: 'New comment successfully added!'
+      respond_to do |format|
+        format.html { redirect_to macro_path(@macro), notice: 'New comment added.' }
+        format.js
+      end
     else
-      render 'macros/new'
+      respond_to do |format|
+        format.html { render 'macros/show' }
+        format.js # <-- idem
+      end
     end
   end
 
