@@ -1,1 +1,5 @@
 document.getElementById("comment-<%= @comment.id %>").remove();
+
+if (document.querySelectorAll('.comment').length == 0) {
+    document.querySelector('#comments').insertAdjacentHTML('beforeend', '<h5 class="text-secondary no-comments mb-4">No comments yet</h5>')
+  }

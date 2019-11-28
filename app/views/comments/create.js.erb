@@ -17,3 +17,7 @@ function addComment(commentHTML) {
   addComment('<%= j render "show", comment: @comment %>');
   refreshForm('<%= j render "form", macro: @macro, comment: Comment.new %>');
 <% end %>
+
+if (document.querySelectorAll('.comment').length > 0) {
+    document.querySelector('.no-comments').remove();
+  }
