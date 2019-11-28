@@ -16,4 +16,8 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:index, :show]
   get '/help', to: "pages#help", as: :help
+
+  get 'download_xlsb', to: "pages#download_xlsb"
+  get 'download_dotm', to: "pages#download_dotm"
+  get 'download_ppam', to: "pages#download_ppam"
 end

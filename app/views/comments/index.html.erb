@@ -3,7 +3,7 @@
 <% @macros.each do |macro| %>
   <% macro.comments.order('created_at DESC').each do |comment| %>
     <%= link_to macro_path(comment.macro), class:"comment-link" do %>
-      <div class="comment">
+      <div class="user-comment" id="comment-<%= comment.id %>">
         <%= image_tag "avatar.png", class: "avatar-large" %>
         <div class="comment-content">
           <p><small><%= comment.user.email.split("@")[0].capitalize %> - <%= comment.created_at.localtime.strftime("%A, %d %b %Y %l:%M %p") %></small></p>
