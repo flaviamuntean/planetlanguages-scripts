@@ -1,0 +1,17 @@
+<%= simple_form_for([macro, comment], remote: true) do |f| %>
+
+  <div class="form-inputs">
+    <% if controller_name == 'comments' && action_name == "edit" %>
+      <%= f.input :content, input_html: { autocomplete: 'off', autofocus: "true" } %>
+    <% else %>
+      <%= f.input :content, input_html: { autocomplete: 'off' } %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Save', class: 'btn btn-purple btn-sm mb-4' %>
+    <% if controller_name == 'comments' && action_name == "edit" %>
+      <%= link_to 'Cancel', macro_path(macro), class: 'btn btn-sm btn-outline-secondary mb-4' %>
+    <% end %>
+  </div>
+<% end %>
