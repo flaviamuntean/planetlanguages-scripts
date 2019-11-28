@@ -34,17 +34,29 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to macro_path(@macro), notice: 'Comment successfully updated!'
+      respond_to do |format|
+        format.html { redirect_to macro_path(@macro), notice: 'Comment successfully updated!' }
+        format.js # <-- idem
+      end
     else
-      render 'macros/edit'
+      respond_to do |format|
+        format.html { render 'macros/edit' }
+        format.js # <-- idem
+      end
     end
   end
 
   def destroy
     if @comment.destroy
-      redirect_to macro_path(@macro), notice: 'Comment successfully deleted!'
+      respond_to do |format|
+        format.html { redirect_to macro_path(@macro), notice: 'Comment successfully deleted!' }
+        format.js # <-- idem
+      end
     else
-      render 'macros/show'
+      respond_to do |format|
+        format.html { render 'macros/show' }
+        format.js # <-- idem
+      end
     end
   end
 

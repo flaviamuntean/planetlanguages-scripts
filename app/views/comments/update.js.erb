@@ -1,0 +1,25 @@
+function refreshForm(innerHTML) {
+  const newCommentForm = document.getElementById('edit_comment_<%= @comment.id %>');
+  newCommentForm.innerHTML = innerHTML;
+}
+
+function newForm(outerHTML) {
+  const newCommentForm = document.getElementById('edit_comment_<%= @comment.id %>');
+  newCommentForm.outerHTML = outerHTML;
+  document.querySelector("label.text.required").innerText = "New comment *"
+}
+
+function updateComment(commentHTML) {
+  const comment = document.getElementById('comment-<%= @comment.id %>');
+  comment.outerHTML = commentHTML;
+}
+
+
+<% if @comment.errors.any? %>
+  console.log('erros');
+  refreshForm('<%= j render "form", macro: @macro, comment: @comment %>');
+<% else %>
+  console.log('no errors');
+  updateComment('<%= j render "show", comment: @comment %>');
+  newForm('<%= j render "form", macro: @macro, comment: Comment.new %>');
+<% end %>
