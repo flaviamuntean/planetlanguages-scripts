@@ -1,4 +1,4 @@
-.comment {
+.user-comment {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
@@ -7,37 +7,37 @@
   border: 1px solid rgb(235,235,235);
 }
 
-.comment .comment-content {
+.user-comment .comment-content {
   flex-grow: 1;
   padding: 0 24px;
 }
 
-.comment p {
+.user-comment p {
   margin: 0;
   line-height: 1.4;
 }
 
-.comment small {
+.user-comment small {
   color: #999999;
   font-weight: bold;
 }
-.comment .comment-actions {
+.user-comment .comment-actions {
   opacity: 0;
   display: flex;
   transition: ease .3s;
 }
 
-.comment:hover .comment-actions {
+.user-comment:hover .comment-actions {
   opacity: 1;
 }
 
-.comment .comment-actions a {
+.user-comment .comment-actions a {
   color: #999999;
   margin-left: 16px;
   font-size: 14px;
 }
 
-.comment .comment-actions a:hover {
+.user-comment .comment-actions a:hover {
   color: #555555;
   text-decoration: none;
 }
