@@ -1,4 +1,4 @@
-<div class="comment" id="comment-<%= comment.id %>">
+<div class="user-comment" id="comment-<%= comment.id %>">
   <%= image_tag "avatar.png", class: "avatar-large" %>
   <div class="comment-content">
     <p><small><%= comment.user.email.split("@")[0].capitalize %> - <%= comment.created_at.localtime.strftime("%A, %d %b %Y %l:%M %p") %></small></p>
