@@ -18,6 +18,6 @@ function addComment(commentHTML) {
   refreshForm('<%= j render "form", macro: @macro, comment: Comment.new %>');
 <% end %>
 
-if (document.querySelectorAll('.comment').length > 0) {
+if (document.querySelectorAll('.user-comment').length > 0) {
     document.querySelector('.no-comments').remove();
   }
