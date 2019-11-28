@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render 'macros/edit' }
+        format.html { render 'macros/show' }
         format.js # <-- idem
       end
     end
