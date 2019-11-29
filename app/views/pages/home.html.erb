@@ -1,5 +1,6 @@
-<div class="home-page" style="background-image: url(<%= asset_path 'bg-coffee.png' %>)">
-  <%= render 'shared/navbar' %>
+<!-- OLD -->
+<!-- <div class="home-page" style="background-image: url(<%#= asset_path 'bg-coffee.png' %>)">
+  <%#= render 'shared/navbar' %>
   <div class="banner">
     <div id="banner-info" class="container">
         <h1>Welcome to the Planet Languages automation hub</h1>
@@ -8,6 +9,27 @@
           <input type="search" name="query" class="form-control" placeholder="Search by name or functionality">
           <input type="submit" value="Find a solution!" class="btn btn-login">
         </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- NEW -->
+<div class="home-page">
+  <%= render 'shared/navbar' %>
+  <div class="home">
+    <div class="row d-flex">
+      <div id="banner-info" class="col-sm-5">
+          <h1>Welcome to the <br>Planet Languages<br> automation hub</h1>
+          <p>Take a break while your chosen automation solution does the work for you</p>
+          <form action="/macros">
+            <input type="search" name="query" class="form-control" placeholder="Search by name or functionality">
+            <input type="submit" value="Find a solution!" class="btn btn-login">
+          </form>
+      </div>
+      <div class="col-sm-7 home-img home-img-2" style="background-image: url(<%= asset_path 'done-5.png' %>)">
+      </div>
+<!--       <div class="col-sm-7 home-img" style="background-image: url(<%#= asset_path 'marginalia-productive-work.png' %>)">
+      </div> -->
     </div>
   </div>
 </div>
