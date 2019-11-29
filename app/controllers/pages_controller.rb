@@ -16,6 +16,6 @@ class PagesController < ApplicationController
   end
 
   def download_ppam
-    send_file "#{Rails.root}/public/downloads/PL_macros.ppam", x_sendfile: true
+    send_file "#{Rails.root}/public/downloads/RA_macros.ppam", x_sendfile: true
   end
 end
