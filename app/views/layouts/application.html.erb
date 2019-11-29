@@ -12,7 +12,8 @@
     <%= stylesheet_link_tag 'prism.css', media: 'all' %>
   </head>
   <body>
-    <% unless action_name == 'home' || (controller_name != 'macros' && action_name == 'new') %>
+    <%# unless action_name == 'home' || (controller_name != 'macros' && action_name == 'new') %>
+    <% unless action_name == 'home' %>
       <%= render 'shared/navbar' %>
       <div class="container mt-5">
         <%= render 'shared/flashes' %>
