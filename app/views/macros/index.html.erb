@@ -1,7 +1,7 @@
 <%= render "shared/filters" %>
 <div class="cards mb-5">
 
-  <% if current_user.email == "flavia@planetlanguages.com" %>
+  <% if current_user.email == "flavia@planetlanguages.com" && @macros.length > 0 %>
     <%= link_to new_macro_path, class: 'card-add' do %>
       <div class="card-category" style="background-color: #aaa">
         <i class="fas fa-plus"></i>
@@ -17,5 +17,11 @@
   <% end %>
 
 </div>
+
+<% if @macros.length.zero? %>
+  <div class="not-found" style="background-image: url(<%= asset_path 'not_found.png' %>)">
+  </div>
+<% end %>
+
 
 
