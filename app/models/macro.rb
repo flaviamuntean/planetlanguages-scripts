@@ -24,7 +24,7 @@ class Macro < ApplicationRecord
 
   def self.tags
     ['translation', 'approval', 'memoQ', 'single file', 'multiple files',
-     'other', 'word/char count', 'TM analysis', 'checking', 'eLearning'].sort_by(&:downcase)
+     'other', 'word/character count', 'TM analysis', 'checking', 'eLearning'].sort_by(&:downcase)
   end
 
   def self.file_types

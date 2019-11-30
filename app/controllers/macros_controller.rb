@@ -6,10 +6,9 @@ class MacrosController < ApplicationController
       @macros = Macro.global_search(params[:query]).order('name ASC')
     elsif params[:filter]
       @filters = params[:filter][:tags].concat(params[:filter][:clients]).concat(params[:filter]["file_types"]).flatten.reject(&:blank?)
-      @macros = @filters.empty? ? Macro.all.order('name ASC') : Macro.global_search(@filters.to_s).order('name ASC')
+      @macros = @filters.empty? ? Macro.all.order('name ASC') : Macro.tagged_with(@filters, all: true).order('name ASC')
     elsif params[:tag]
-      @filters = params[:tag]
-      @macros = Macro.global_search(@filters.to_s).order('name ASC')
+      @macros = Macro.tagged_with(params[:tag]).order('name ASC')
     else
       @macros = Macro.all.order('name ASC')
     end

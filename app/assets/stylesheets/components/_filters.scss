@@ -1,6 +1,6 @@
 .filters {
   margin: 40px 0;
-  padding-bottom: 8px;
+  padding-bottom: 2px;
   border-bottom: 1px solid #ccc;
 
   .dropdown {
@@ -12,6 +12,8 @@
   width: max-content;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border: none !important;
+  background-color: white;
+  position: fixed;
 
   fieldset {
     margin-left: 8px;
@@ -26,4 +28,20 @@
 .clear-filters:hover {
   text-decoration: none;
   color: black;
+}
+
+.filter-space {
+  width: calc(100% / 4 + 8px);
+}
+
+.filter-svg {
+  margin-bottom: 3px;
+}
+
+#dropdownMenuButton {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#dropdownMenuButton:focus, #dropdownMenuButton.focus {
+  box-shadow: 0 0 0 0.1rem rgba(255, 82, 81, 0.2) !important;
 }

@@ -1,21 +1,22 @@
 <%= render "shared/filters" %>
-<div class="cards mb-5 flex-grow-1" id="macros">
+  <div class="cards mb-5" id="macros">
 
-  <% if current_user.email == "flavia@planetlanguages.com" && @macros.length > 0 %>
-    <%= link_to new_macro_path, class: 'card-add' do %>
-      <div class="card-category" style="background-color: #aaa">
-        <i class="fas fa-plus"></i>
-        <p>Add new</p>
-      </div>
+    <% if current_user.email == "flavia@planetlanguages.com" && @macros.length > 0 %>
+      <%= link_to new_macro_path, class: 'card-add' do %>
+        <div class="card-category" style="background-color: #aaa">
+          <i class="fas fa-plus"></i>
+          <p>Add new</p>
+        </div>
+      <% end %>
     <% end %>
+
+      <%= render 'macro', macros: @macros %>
+
+  </div>
+
+  <% if @macros.length.zero? %>
+    <div class="not-found" style="background-image: url(<%= asset_path 'not_found.png' %>)">
+    </div>
   <% end %>
 
-    <%= render 'macro', macros: @macros %>
-
-</div>
-
-<% if @macros.length.zero? %>
-  <div class="not-found" style="background-image: url(<%= asset_path 'not_found.png' %>)">
-  </div>
-<% end %>
 

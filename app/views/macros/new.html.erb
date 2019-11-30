@@ -5,7 +5,9 @@
     <%= f.input :name, input_html: { autocomplete: 'off', autofocus: true } %>
     <%= f.input :description, input_html: { autocomplete: 'off' } %>
     <%= f.input :code %>
-    <%= f.input :tag_list, as: :check_boxes, collection: Macro.tags, required: :true %>
+    <%= f.input :file_type_list, label: "File Types", as: :check_boxes, collection: Macro.file_types, required: :true %>
+    <%= f.input :client_list, label: "Clients", as: :check_boxes, collection: Macro.clients %>
+    <%= f.input :tag_list, label: "Tags", as: :check_boxes, collection: Macro.tags, required: :true %>
   </div>
 
   <div class="form-actions mb-5">
