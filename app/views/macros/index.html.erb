@@ -1,5 +1,5 @@
 <%= render "shared/filters" %>
-<div class="cards mb-5">
+<div class="cards mb-5 flex-grow-1" id="macros">
 
   <% if current_user.email == "flavia@planetlanguages.com" && @macros.length > 0 %>
     <%= link_to new_macro_path, class: 'card-add' do %>
@@ -10,11 +10,7 @@
     <% end %>
   <% end %>
 
-  <% @macros.each do |macro| %>
-
-      <%= render 'shared/macro_card', macro: macro %>
-
-  <% end %>
+    <%= render 'macro', macros: @macros %>
 
 </div>
 
@@ -22,6 +18,4 @@
   <div class="not-found" style="background-image: url(<%= asset_path 'not_found.png' %>)">
   </div>
 <% end %>
-
-
 

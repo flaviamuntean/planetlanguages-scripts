@@ -25,6 +25,33 @@
 
 }
 
+.cards-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+
+  .overlay-link, .overlay-link:visited {
+    color: $white;
+  }
+
+  .card-macro img {
+    transition: all .2s ease-in-out;
+  }
+  .card-macro:hover img {
+    transform: scale(1.2);
+  }
+
+  a, a:visited {
+    color: $white;
+  }
+
+  .card-add:hover {
+    opacity: .8;
+    text-decoration: none;
+  }
+
+}
+
 .not-found {
   background-position: top;
   background-size: contain;
@@ -56,6 +83,10 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+  .cards-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
@@ -63,7 +94,12 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+  .cards-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+
 }

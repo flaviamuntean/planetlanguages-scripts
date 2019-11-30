@@ -4,20 +4,24 @@
       Filters
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <%= form_tag('/macros', method: :get) do %>
-        <% Macro.tags.each do |tag| %>
-          <%= check_box_tag 'tags[]', tag %>
-          <%= tag %>
-          <br>
-        <% end %>
-        <%= submit_tag 'Apply', class: "btn apply-filter" %>
+      <%= simple_form_for :filter, url: macros_path, method: "GET", remote: true do |f| %>
+        <%= f.input :file_types, label: "FILE TYPES", collection: Macro.file_types, required: :false, as: :check_boxes %>
+      <div class="dropdown-divider"></div>
+        <%= f.input :clients, label: "CLIENTS", collection: Macro.clients, as: :check_boxes %>
+      <div class="dropdown-divider"></div>
+        <%= f.input :tags, label: "TAGS", collection: Macro.tags, as: :check_boxes %>
+        <%#= f.submit "Search", class: "btn apply-filter" %>
+        <%= link_to "Clear all filters", macros_path, class: "btn apply-filter" %>
       <% end %>
     </div>
   </div>
 
-  <% if params[:tags].present? || params[:query].present? %>
-    <%= link_to 'Clear filters', macros_path, class: "clear-filters" %>
+  <% if params[:query] || params[:filter] || params[:tag] %>
+    <%= link_to 'Clear search', macros_path, class: "clear-filters" %>
   <% end %>
 </div>
+
+
+
 
 

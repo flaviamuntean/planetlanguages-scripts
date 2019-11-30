@@ -8,8 +8,15 @@
   }
 }
 
-.dropdown-menu #tags_ {
-  margin-left: 8px;
+.dropdown-menu {
+  width: max-content;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: none !important;
+
+  fieldset {
+    margin-left: 8px;
+    margin-right: 12px;
+  }
 }
 
 .clear-filters {

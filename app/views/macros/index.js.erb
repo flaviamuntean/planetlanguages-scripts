@@ -1,0 +1,21 @@
+function replaceMacros (innerHTML) {
+  const macros = document.getElementById('macros');
+  macros.innerHTML = innerHTML;
+}
+
+
+replaceMacros("<%= j render 'macro', macros: @macros %>");
+
+if (document.querySelectorAll('.card-macro').length == 0) {
+  if (document.querySelector('.not-found') === null) {
+    document.getElementById('macros').insertAdjacentHTML('afterend', '<div class="not-found" style="background-image: url(<%= asset_path "not_found.png" %>)"></div>');
+  }
+} else {
+  if (document.querySelector('.not-found')) {
+    document.querySelector('.not-found').remove();
+  }
+}
+
+
+
+
