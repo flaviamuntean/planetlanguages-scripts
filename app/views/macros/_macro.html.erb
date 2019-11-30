@@ -5,11 +5,11 @@
       <!-- <div class="card-inner"> -->
         <%#= image_tag(macro.photo || Unsplash::Photo.search("Coding").sample.urls.regular) %>
         <div class="office-icon">
-          <% if macro.tag_list.include? "Word" %>
+          <% if macro.file_type_list.include? "Word" %>
             <i class="fas fa-file-word"></i>
-          <% elsif macro.tag_list.include? "Excel" %>
+          <% elsif macro.file_type_list.include? "Excel" %>
             <i class="fas fa-file-excel"></i>
-          <% elsif macro.tag_list.include? "PowerPoint" %>
+          <% elsif macro.file_type_list.include? "PowerPoint" %>
             <i class="fas fa-file-powerpoint"></i>
           <% end %>
         </div>
