@@ -25,3 +25,30 @@ form abbr[title] {
   border-bottom: none !important;
   text-decoration: none !important;
 }
+
+
+
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
+
+@media (min-width: 1680px) {
+  /* line 6, node_modules/bootstrap/scss/_grid.scss */
+  .container {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* line 6, node_modules/bootstrap/scss/_grid.scss */
+  .container {
+    max-width: 1600px;
+  }
+}
+
+@media (min-width: 2560px) {
+  /* line 6, node_modules/bootstrap/scss/_grid.scss */
+  .container {
+    max-width: 2000px;
+  }
+}

@@ -20,6 +20,8 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'acts_as_favoritor'
 gem 'unsplash'
 gem 'jquery-rails'
+gem 'inline_svg'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,7 +1,7 @@
 <div class="filters d-flex align-items-baseline">
   <div class="dropdown">
-    <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Filters
+    <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= inline_svg "icon-filter.svg", class: "filter-svg" %> FILTERS
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <%= simple_form_for :filter, url: macros_path, method: "GET", remote: true do |f| %>
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <% if params[:query] || params[:filter] || params[:tag] %>
+  <% if params[:query] || params[:filter] || params[:tag] || @filters %>
     <%= link_to 'Clear search', macros_path, class: "clear-filters" %>
   <% end %>
 </div>

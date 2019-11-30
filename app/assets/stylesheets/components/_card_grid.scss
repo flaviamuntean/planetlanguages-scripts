@@ -103,3 +103,17 @@
   }
 
 }
+
+@media (min-width: 1920px) {
+  /* line 6, node_modules/bootstrap/scss/_grid.scss */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 2560px) {
+  /* line 6, node_modules/bootstrap/scss/_grid.scss */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
