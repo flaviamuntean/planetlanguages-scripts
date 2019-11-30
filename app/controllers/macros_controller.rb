@@ -2,17 +2,26 @@ class MacrosController < ApplicationController
   before_action :set_macro, only: [:show, :edit, :update, :destroy, :favorite, :unfavorite]
 
   def index
-    if params[:query].present?
+    if params[:query]
       @macros = Macro.global_search(params[:query]).order('name ASC')
-    elsif params[:tags].present?
-      @macros = Macro.tagged_with(params[:tags]).order('name ASC')
+    elsif params[:filter]
+      @filters = params[:filter][:tags].concat(params[:filter][:clients]).concat(params[:filter]["file_types"]).flatten.reject(&:blank?)
+      @macros = @filters.empty? ? Macro.all.order('name ASC') : Macro.global_search(@filters.to_s).order('name ASC')
+    elsif params[:tag]
+      @filters = params[:tag]
+      @macros = Macro.global_search(@filters.to_s).order('name ASC')
     else
       @macros = Macro.all.order('name ASC')
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
   def show
     @comment = Comment.new
+    @all_tags = @macro.client_list.concat(@macro.file_type_list).concat(@macro.tag_list).flatten.reject(&:blank?)
   end
 
   def new
@@ -86,6 +95,6 @@ class MacrosController < ApplicationController
   end
 
   def macro_params
-    params.require(:macro).permit(:name, :description, :code, tag_list: [])
+    params.require(:macro).permit(:name, :description, :code, tag_list: [], file_type_list: [], client_list: [])
   end
 end

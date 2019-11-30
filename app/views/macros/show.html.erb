@@ -49,13 +49,13 @@
 
 
 <h2 class="header">Tags</h2>
-<% if @macro.tag_list.empty? %>
+<% if @all_tags.nil? || @all_tags.empty? %>
   <h5 class="text-secondary mb-4">No tags yet</h5>
 <% else %>
-  <% @macro.tag_list[0...-1].each do |tag| %>
-    <%= link_to tag, macros_path(tags: tag), class: "tag" %>
+  <% @all_tags[0...-1].each do |tag| %>
+    <%= link_to tag, macros_path(tag: tag), class: "tag" %>
   <% end %>
-  <%= link_to @macro.tag_list[-1], macros_path(tags: @macro.tag_list[-1]), class: "tag" %>
+  <%= link_to @all_tags[-1], macros_path(tag: @all_tags[-1]), class: "tag" %>
 <% end %>
 
 <h2 class="header">Comments</h2>
