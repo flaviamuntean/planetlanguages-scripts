@@ -29,10 +29,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @all_tags = @macro.client_list.concat(@macro.file_type_list).concat(@macro.tag_list).flatten.reject(&:blank?)
     render 'macros/show'
   end
 
   def update
+    @all_tags = @macro.client_list.concat(@macro.file_type_list).concat(@macro.tag_list).flatten.reject(&:blank?)
     if @comment.update(comment_params)
       respond_to do |format|
         format.html { redirect_to macro_path(@macro), notice: 'Comment successfully updated!' }
