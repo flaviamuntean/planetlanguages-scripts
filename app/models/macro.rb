@@ -32,6 +32,6 @@ class Macro < ApplicationRecord
   end
 
   def self.clients
-    ['Optik', 'Retail Academy', 'Swarovski.com', 'Axel Springer'].sort_by(&:downcase)
+    ['Optik', 'RA Training', 'Online content', 'ASCS'].sort_by(&:downcase)
   end
 end
