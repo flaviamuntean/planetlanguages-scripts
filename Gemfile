@@ -22,8 +22,9 @@ gem 'acts_as_favoritor'
 gem 'unsplash'
 gem 'jquery-rails'
 gem 'inline_svg'
-gem 'net-smtp'
-
+gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false
 
 group :development do
   gem 'web-console', '>= 3.3.0'
