@@ -22,6 +22,7 @@ gem 'acts_as_favoritor'
 gem 'unsplash'
 gem 'jquery-rails'
 gem 'inline_svg'
+gem 'net-smtp'
 
 
 group :development do
